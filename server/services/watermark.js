@@ -14,9 +14,9 @@ async function parseUrl(url, retries = 3) {
   const config = {
     params: { share_url: url },
     headers: {
-      'Authorization': `Bearer ${API_TOKEN}`
+      Authorization: `Bearer ${API_TOKEN}`,
     },
-    timeout: 20000
+    timeout: 20000,
   };
 
   if (PROXY) {
@@ -27,12 +27,15 @@ async function parseUrl(url, retries = 3) {
   let lastError;
   for (let i = 0; i < retries; i++) {
     try {
-      var response = await axios.get(`${API_BASE}/api/v1/douyin/web/fetch_one_video_by_share_url`, config);
+      var response = await axios.get(
+        `${API_BASE}/api/v1/douyin/web/fetch_one_video_by_share_url`,
+        config,
+      );
       break;
     } catch (err) {
       lastError = err;
       if (i < retries - 1) {
-        await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+        await new Promise((r) => setTimeout(r, 1000 * (i + 1)));
       }
     }
   }
@@ -62,11 +65,12 @@ async function parseUrl(url, retries = 3) {
   // 提取视频地址（仅视频类型，图集的 video 字段是背景音乐，忽略）
   let videoUrl = '';
   if (!isImagePost) {
-    videoUrl = aweme.video?.play_addr_h264?.url_list?.[0]
-      || aweme.video?.download_addr?.url_list?.[0]
-      || aweme.video?.play_addr?.url_list?.[0]
-      || aweme.video?.play_addr_lowbr?.url_list?.[0]
-      || '';
+    videoUrl =
+      aweme.video?.play_addr_h264?.url_list?.[0] ||
+      aweme.video?.download_addr?.url_list?.[0] ||
+      aweme.video?.play_addr?.url_list?.[0] ||
+      aweme.video?.play_addr_lowbr?.url_list?.[0] ||
+      '';
   }
 
   return {
@@ -77,7 +81,7 @@ async function parseUrl(url, retries = 3) {
     images,
     video_url: videoUrl,
     text: aweme.desc || '',
-    cover: aweme.video?.cover?.url_list?.[0] || ''
+    cover: aweme.video?.cover?.url_list?.[0] || '',
   };
 }
 

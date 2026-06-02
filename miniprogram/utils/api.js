@@ -1,7 +1,7 @@
-const app = getApp()
+const app = getApp();
 
 function getBaseUrl() {
-  return app.globalData.baseUrl
+  return app.globalData.baseUrl;
 }
 
 /**
@@ -18,16 +18,16 @@ function parseUrl(url) {
       header: { 'Content-Type': 'application/json' },
       success(res) {
         if (res.statusCode === 200 && res.data.success) {
-          resolve(res.data.data)
+          resolve(res.data.data);
         } else {
-          reject(new Error(res.data.message || '解析失败'))
+          reject(new Error(res.data.message || '解析失败'));
         }
       },
-      fail(err) {
-        reject(new Error('网络请求失败，请检查网络'))
-      }
-    })
-  })
+      fail() {
+        reject(new Error('网络请求失败，请检查网络'));
+      },
+    });
+  });
 }
 
-module.exports = { parseUrl }
+module.exports = { parseUrl };
