@@ -5,8 +5,8 @@ function getBaseUrl() {
 }
 
 /**
- * 解析抖音链接
- * @param {string} url - 抖音分享链接
+ * 解析短视频链接
+ * @param {string} url - 短视频分享链接
  * @returns {Promise<object>} 解析结果
  */
 function parseUrl(url) {
