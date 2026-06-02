@@ -1,16 +1,16 @@
 /* === Claude 暖色设计 Tokens === */
 page {
-  --bg-primary: #F0EEE6;
-  --bg-secondary: #FAF9F5;
-  --text-primary: #1A1916;
-  --text-secondary: #6B6862;
-  --accent: #CC785C;
-  --accent-dark: #BD5D3A;
-  --border: #E3E0D8;
+  --bg-primary: #f0eee6;
+  --bg-secondary: #faf9f5;
+  --text-primary: #1a1916;
+  --text-secondary: #6b6862;
+  --accent: #cc785c;
+  --accent-dark: #bd5d3a;
+  --border: #e3e0d8;
 
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
   font-size: 28rpx;
   line-height: 1.7;
 }
@@ -34,7 +34,7 @@ page {
 /* === 主按钮 === */
 .btn-primary {
   background-color: var(--accent);
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   border-radius: 12rpx;
   padding: 24rpx 0;

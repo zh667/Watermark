@@ -1,0 +1,7 @@
+node_modules
+server/node_modules
+miniprogram/miniprogram_npm
+dist
+build
+scripts
+miniprogram/images
