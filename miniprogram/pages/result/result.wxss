@@ -1,0 +1,170 @@
+/* === 结果页 === */
+
+/* 作者信息 */
+.author-section {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0 30rpx;
+}
+
+.author-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  border: 1rpx solid var(--border);
+}
+
+.author-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 4rpx;
+}
+
+.author-title {
+  font-size: 24rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tab 栏 */
+.tab-bar {
+  display: flex;
+  border-bottom: 1rpx solid var(--border);
+  margin-bottom: 30rpx;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+}
+
+.tab-active {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.tab-active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  right: 30%;
+  height: 4rpx;
+  background-color: var(--accent);
+  border-radius: 2rpx;
+}
+
+.tab-badge {
+  font-size: 20rpx;
+  background-color: var(--accent);
+  color: #fff;
+  padding: 2rpx 10rpx;
+  border-radius: 16rpx;
+  line-height: 1.4;
+}
+
+/* Tab 内容 */
+.tab-content {
+  min-height: 300rpx;
+}
+
+/* 图片网格 */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.image-item {
+  width: calc(50% - 8rpx);
+  position: relative;
+  border-radius: 8rpx;
+  overflow: hidden;
+  border: 1rpx solid var(--border);
+}
+
+.image-preview {
+  width: 100%;
+  display: block;
+}
+
+.image-save {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(26, 25, 22, 0.6);
+  color: #fff;
+  text-align: center;
+  padding: 12rpx 0;
+  font-size: 24rpx;
+}
+
+.save-all-btn {
+  margin-top: 10rpx;
+}
+
+/* 视频 */
+.video-wrapper {
+  padding: 0;
+  overflow: hidden;
+  margin-bottom: 30rpx;
+}
+
+.video-player {
+  width: 100%;
+  height: 420rpx;
+}
+
+/* 文案 */
+.text-content {
+  margin-bottom: 30rpx;
+}
+
+.text-body {
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: var(--text-primary);
+  word-break: break-all;
+}
+
+/* 空状态 */
+.empty-tip {
+  padding: 80rpx 0;
+  font-size: 28rpx;
+}
+
+/* 错误状态 */
+.error-block {
+  text-align: center;
+  padding: 60rpx 32rpx;
+}
+
+.error-text {
+  display: block;
+  font-size: 30rpx;
+  color: var(--text-primary);
+  margin-bottom: 30rpx;
+}
+
+.retry-btn {
+  width: 60%;
+}

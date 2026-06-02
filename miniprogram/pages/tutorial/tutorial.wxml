@@ -1,0 +1,19 @@
+<view class="container">
+  <text class="page-title">使用教程</text>
+  <text class="page-subtitle">简单四步，轻松去水印</text>
+
+  <view class="steps">
+    <view class="step-item card" wx:for="{{steps}}" wx:key="num">
+      <text class="step-num text-accent">{{item.num}}</text>
+      <view class="step-content">
+        <text class="step-title">{{item.title}}</text>
+        <text class="step-desc text-secondary">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="tip-section card">
+    <text class="tip-label text-accent">小提示</text>
+    <text class="tip-text text-secondary">支持抖音、快手、小红书、B站、微博等国内主流短视频平台。</text>
+  </view>
+</view>

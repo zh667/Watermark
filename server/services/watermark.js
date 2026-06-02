@@ -10,7 +10,7 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
  * @param {string} url - 抖音分享链接
  * @returns {object} 解析结果
  */
-async function parseUrl(url) {
+async function parseUrl(url, retries = 3) {
   const config = {
     params: { share_url: url },
     headers: {
@@ -24,7 +24,21 @@ async function parseUrl(url) {
     config.proxy = false;
   }
 
-  const response = await axios.get(`${API_BASE}/api/v1/douyin/web/fetch_one_video_by_share_url`, config);
+  let lastError;
+  for (let i = 0; i < retries; i++) {
+    try {
+      var response = await axios.get(`${API_BASE}/api/v1/douyin/web/fetch_one_video_by_share_url`, config);
+      break;
+    } catch (err) {
+      lastError = err;
+      if (i < retries - 1) {
+        await new Promise(r => setTimeout(r, 1000 * (i + 1)));
+      }
+    }
+  }
+  if (!response) {
+    throw lastError || new Error('请求失败，请稍后重试');
+  }
 
   const data = response.data;
 
@@ -43,13 +57,20 @@ async function parseUrl(url) {
     }
   }
 
-  // 提取视频地址（无水印）
-  const videoUrl = aweme.video?.play_addr?.url_list?.[0]
-    || aweme.video?.play_addr_lowbr?.url_list?.[0]
-    || '';
+  const isImagePost = images.length > 0;
+
+  // 提取视频地址（仅视频类型，图集的 video 字段是背景音乐，忽略）
+  let videoUrl = '';
+  if (!isImagePost) {
+    videoUrl = aweme.video?.play_addr_h264?.url_list?.[0]
+      || aweme.video?.download_addr?.url_list?.[0]
+      || aweme.video?.play_addr?.url_list?.[0]
+      || aweme.video?.play_addr_lowbr?.url_list?.[0]
+      || '';
+  }
 
   return {
-    type: images.length > 0 ? 'images' : 'video',
+    type: isImagePost ? 'images' : 'video',
     title: aweme.desc || '',
     author: aweme.author?.nickname || '',
     author_avatar: aweme.author?.avatar_thumb?.url_list?.[0] || '',

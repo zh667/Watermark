@@ -1,0 +1,120 @@
+/* === 首页 === */
+.header {
+  padding: 20rpx 0 10rpx;
+}
+
+/* 输入区域 */
+.input-card {
+  padding: 36rpx;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 28rpx;
+}
+
+.url-input {
+  width: 100%;
+  min-height: 120rpx;
+  padding: 20rpx 60rpx 20rpx 20rpx;
+  border: 1rpx solid var(--border);
+  border-radius: 8rpx;
+  background-color: var(--bg-primary);
+  font-size: 28rpx;
+  color: var(--text-primary);
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.input-placeholder {
+  color: var(--text-secondary);
+  font-size: 28rpx;
+}
+
+.input-clear {
+  position: absolute;
+  right: 12rpx;
+  top: 12rpx;
+  width: 44rpx;
+  height: 44rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-icon {
+  font-size: 36rpx;
+  color: var(--text-secondary);
+}
+
+/* 按钮组 */
+.btn-group {
+  display: flex;
+  gap: 20rpx;
+}
+
+.paste-btn {
+  flex: 1;
+}
+
+.parse-btn {
+  flex: 2;
+}
+
+/* 功能入口 */
+.feature-section {
+  margin-top: 20rpx;
+}
+
+.section-label {
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  margin-bottom: 20rpx;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 32rpx;
+}
+
+.feature-num {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-right: 24rpx;
+  font-style: italic;
+}
+
+.feature-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-name {
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-bottom: 4rpx;
+}
+
+.feature-desc {
+  font-size: 24rpx;
+}
+
+.feature-arrow {
+  font-size: 40rpx;
+  margin-left: 12rpx;
+}
+
+/* 底部 */
+.footer {
+  margin-top: 60rpx;
+  padding-bottom: 40rpx;
+  font-size: 22rpx;
+  letter-spacing: 4rpx;
+}

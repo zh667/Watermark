@@ -1,0 +1,17 @@
+<view class="container">
+  <text class="page-title">常见问题</text>
+  <text class="page-subtitle">ii. 你可能想知道的</text>
+
+  <view class="faq-list">
+    <view class="faq-item card" wx:for="{{list}}" wx:key="q" data-idx="{{index}}" bindtap="toggleItem">
+      <view class="faq-header">
+        <text class="faq-question">{{item.q}}</text>
+        <text class="faq-arrow {{item.open ? 'arrow-open' : ''}}">›</text>
+      </view>
+      <view class="faq-answer" wx:if="{{item.open}}">
+        <view class="divider"></view>
+        <text class="faq-answer-text text-secondary">{{item.a}}</text>
+      </view>
+    </view>
+  </view>
+</view>
