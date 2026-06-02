@@ -111,11 +111,13 @@ Page({
     wx.previewImage({ current, urls });
   },
 
-  // 下载文件
+  // 下载文件（通过后端代理，解决域名限制）
   _downloadFile(url) {
+    const app = getApp();
+    const proxyUrl = `${app.globalData.baseUrl}/api/proxy?url=${encodeURIComponent(url)}`;
     return new Promise((resolve, reject) => {
       wx.downloadFile({
-        url,
+        url: proxyUrl,
         success(res) {
           if (res.statusCode === 200) {
             resolve(res.tempFilePath);

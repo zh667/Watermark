@@ -1,5 +1,5 @@
 App({
   globalData: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://api.zh667.cn',
   },
 });
