@@ -68,8 +68,25 @@
           批量保存全部图片（{{result.images.length}}张）
         </button>
       </block>
+      <!-- 视频类型时显示封面图 -->
+      <block wx:elif="{{result.cover}}">
+        <view class="image-grid">
+          <view class="image-item">
+            <image
+              class="image-preview"
+              src="{{result.cover}}"
+              mode="widthFix"
+              data-url="{{result.cover}}"
+              bindtap="previewImage"
+            />
+            <view class="image-save" data-url="{{result.cover}}" bindtap="saveImage">
+              <text>保存</text>
+            </view>
+          </view>
+        </view>
+      </block>
       <view class="empty-tip text-secondary text-center" wx:else>
-        <text>暂无图片内容</text>
+        <text>空空如也～</text>
       </view>
     </view>
 
@@ -89,7 +106,7 @@
         <button class="btn-primary" bindtap="saveVideo">保存视频到相册</button>
       </block>
       <view class="empty-tip text-secondary text-center" wx:else>
-        <text>暂无视频内容</text>
+        <text>空空如也～</text>
       </view>
     </view>
 
