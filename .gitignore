@@ -13,6 +13,7 @@ package-lock.json
 # === 微信小程序 ===
 miniprogram_npm/
 project.private.config.json
+project.config.json
 
 # === 编辑器与系统 ===
 .DS_Store
@@ -22,6 +23,9 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# === 截图与临时文件 ===
+Snipaste_*.png
 
 # === 日志 ===
 logs/
