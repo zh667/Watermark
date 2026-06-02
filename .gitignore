@@ -1,0 +1,43 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# === 环境变量与密钥 ===
+.env
+.env.local
+.env.*.local
+
+# === 微信小程序 ===
+miniprogram_npm/
+project.private.config.json
+project.config.json
+
+# === 编辑器与系统 ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === 截图与临时文件 ===
+Snipaste_*.png
+
+# === 日志 ===
+logs/
+*.log
+
+# === 构建产物 ===
+dist/
+build/
+
+# === OMC ===
+.omc/
+server/.omc/
+
+# === Claude Code 本地配置 ===
+.claude/
