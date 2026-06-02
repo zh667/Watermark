@@ -13,6 +13,7 @@ package-lock.json
 # === 微信小程序 ===
 miniprogram_npm/
 project.private.config.json
+project.config.json
 
 # === 编辑器与系统 ===
 .DS_Store
@@ -23,6 +24,9 @@ Thumbs.db
 *.swo
 *~
 
+# === 截图与临时文件 ===
+Snipaste_*.png
+
 # === 日志 ===
 logs/
 *.log
@@ -31,5 +35,9 @@ logs/
 dist/
 build/
 
-# === OMC 工作状态（规格和计划保留，运行时状态忽略） ===
-.omc/state/
+# === OMC ===
+.omc/
+server/.omc/
+
+# === Claude Code 本地配置 ===
+.claude/
