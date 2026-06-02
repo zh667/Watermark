@@ -1,0 +1,70 @@
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="page-title">去水印工具</text>
+    <text class="page-subtitle">粘贴抖音链接，一键获取无水印内容</text>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="card input-card">
+    <view class="input-wrapper">
+      <textarea
+        class="url-input"
+        placeholder="粘贴抖音分享链接到这里"
+        placeholder-class="input-placeholder"
+        value="{{url}}"
+        bindinput="onInputChange"
+        maxlength="500"
+        auto-height
+      />
+      <view class="input-clear" wx:if="{{url}}" bindtap="onClear">
+        <text class="clear-icon">×</text>
+      </view>
+    </view>
+
+    <view class="btn-group">
+      <button class="btn-secondary paste-btn" bindtap="onPaste">粘贴链接</button>
+      <button class="btn-primary parse-btn" bindtap="onParse" loading="{{loading}}" disabled="{{loading}}">
+        {{loading ? '解析中...' : '开始解析'}}
+      </button>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="feature-section">
+    <view class="section-label text-secondary">i. 更多功能</view>
+    <view class="feature-list">
+      <view class="feature-item card" bindtap="goTutorial">
+        <text class="feature-num text-accent">01</text>
+        <view class="feature-info">
+          <text class="feature-name">使用教程</text>
+          <text class="feature-desc text-secondary">了解如何使用去水印</text>
+        </view>
+        <text class="feature-arrow text-secondary">›</text>
+      </view>
+
+      <view class="feature-item card" bindtap="goFaq">
+        <text class="feature-num text-accent">02</text>
+        <view class="feature-info">
+          <text class="feature-name">常见问题</text>
+          <text class="feature-desc text-secondary">解答你的疑惑</text>
+        </view>
+        <text class="feature-arrow text-secondary">›</text>
+      </view>
+
+      <view class="feature-item card" bindtap="goContact">
+        <text class="feature-num text-accent">03</text>
+        <view class="feature-info">
+          <text class="feature-name">联系我们</text>
+          <text class="feature-desc text-secondary">反馈问题或建议</text>
+        </view>
+        <text class="feature-arrow text-secondary">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class="footer text-secondary text-center">
+    <text>made with care</text>
+  </view>
+</view>

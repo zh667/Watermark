@@ -1,0 +1,63 @@
+<wxs module="utils">
+  module.exports = {
+    formatTime: function(timestamp) {
+      var d = getDate(timestamp)
+      var month = (d.getMonth() + 1).toString()
+      var day = d.getDate().toString()
+      var hour = d.getHours().toString()
+      var min = d.getMinutes().toString()
+      if (month.length < 2) month = '0' + month
+      if (day.length < 2) day = '0' + day
+      if (hour.length < 2) hour = '0' + hour
+      if (min.length < 2) min = '0' + min
+      return month + '-' + day + ' ' + hour + ':' + min
+    }
+  }
+</wxs>
+
+<view class="container">
+  <view class="header-row">
+    <view>
+      <text class="page-title">历史记录</text>
+      <text class="page-subtitle">最近 {{list.length}} 条解析记录</text>
+    </view>
+    <view class="clear-btn text-accent" bindtap="onClear" wx:if="{{list.length > 0}}">
+      <text>清空</text>
+    </view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="history-list" wx:if="{{list.length > 0}}">
+    <view class="history-item card" wx:for="{{list}}" wx:key="time">
+      <image
+        class="history-cover"
+        src="{{item.cover}}"
+        mode="aspectFill"
+        wx:if="{{item.cover}}"
+      />
+      <view class="history-placeholder" wx:else>
+        <text class="text-secondary">{{item.type === 'images' ? '图集' : '视频'}}</text>
+      </view>
+      <view class="history-info">
+        <text class="history-title">{{item.title || '未知标题'}}</text>
+        <text class="history-author text-secondary">{{item.author || '未知作者'}}</text>
+        <text class="history-time text-secondary">{{utils.formatTime(item.time)}}</text>
+      </view>
+      <view class="history-actions">
+        <view class="action-btn" data-url="{{item.url}}" bindtap="onReparse">
+          <text class="text-accent">解析</text>
+        </view>
+        <view class="action-btn" data-url="{{item.url}}" bindtap="onCopyLink">
+          <text class="text-secondary">复制</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:else>
+    <text class="empty-icon">&#128203;</text>
+    <text class="empty-text text-secondary">暂无历史记录</text>
+    <text class="empty-hint text-secondary">解析过的链接会自动保存在这里</text>
+  </view>
+</view>

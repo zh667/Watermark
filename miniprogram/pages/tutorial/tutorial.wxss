@@ -1,0 +1,53 @@
+/* === 教程页 === */
+.steps {
+  margin-bottom: 30rpx;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 32rpx;
+  gap: 24rpx;
+}
+
+.step-num {
+  font-size: 40rpx;
+  font-weight: 600;
+  font-style: italic;
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  margin-bottom: 8rpx;
+}
+
+.step-desc {
+  font-size: 26rpx;
+  line-height: 1.7;
+}
+
+.tip-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.tip-label {
+  font-size: 26rpx;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.tip-text {
+  font-size: 26rpx;
+  line-height: 1.7;
+}

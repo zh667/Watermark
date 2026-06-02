@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/result/result",
+    "pages/history/history",
+    "pages/tutorial/tutorial",
+    "pages/faq/faq",
+    "pages/contact/contact"
+  ],
+  "tabBar": {
+    "color": "#6B6862",
+    "selectedColor": "#CC785C",
+    "backgroundColor": "#FAF9F5",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史",
+        "iconPath": "images/tab-history.png",
+        "selectedIconPath": "images/tab-history-active.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#F0EEE6",
+    "navigationBarTitleText": "去水印",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F0EEE6",
+    "backgroundTextStyle": "dark"
+  },
+  "style": "v2"
+}

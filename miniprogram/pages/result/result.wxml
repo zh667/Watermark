@@ -1,0 +1,107 @@
+<view class="container">
+  <!-- 错误状态 -->
+  <view class="error-block card" wx:if="{{error}}">
+    <text class="error-text">{{error}}</text>
+    <button class="btn-primary retry-btn" bindtap="onRetry" loading="{{loading}}">重新解析</button>
+  </view>
+
+  <!-- 解析结果 -->
+  <block wx:if="{{result && !error}}">
+    <!-- 作者信息 -->
+    <view class="author-section">
+      <image
+        class="author-avatar"
+        src="{{result.author_avatar}}"
+        mode="aspectFill"
+        wx:if="{{result.author_avatar}}"
+      />
+      <view class="author-info">
+        <text class="author-name">{{result.author || '未知作者'}}</text>
+        <text class="author-title text-secondary">{{result.title}}</text>
+      </view>
+    </view>
+
+    <!-- Tab 切换 -->
+    <view class="tab-bar">
+      <view
+        class="tab-item {{activeTab === 0 ? 'tab-active' : ''}}"
+        data-tab="{{0}}"
+        bindtap="switchTab"
+      >
+        <text>图片</text>
+        <text class="tab-badge" wx:if="{{result.images.length > 0}}">{{result.images.length}}</text>
+      </view>
+      <view
+        class="tab-item {{activeTab === 1 ? 'tab-active' : ''}}"
+        data-tab="{{1}}"
+        bindtap="switchTab"
+      >
+        <text>视频</text>
+      </view>
+      <view
+        class="tab-item {{activeTab === 2 ? 'tab-active' : ''}}"
+        data-tab="{{2}}"
+        bindtap="switchTab"
+      >
+        <text>文案</text>
+      </view>
+    </view>
+
+    <!-- Tab 内容：图片 -->
+    <view class="tab-content" wx:if="{{activeTab === 0}}">
+      <block wx:if="{{result.images.length > 0}}">
+        <view class="image-grid">
+          <view class="image-item" wx:for="{{result.images}}" wx:key="index">
+            <image
+              class="image-preview"
+              src="{{item}}"
+              mode="widthFix"
+              data-url="{{item}}"
+              bindtap="previewImage"
+            />
+            <view class="image-save" data-url="{{item}}" bindtap="saveImage">
+              <text>保存</text>
+            </view>
+          </view>
+        </view>
+        <button class="btn-primary save-all-btn" bindtap="saveAllImages">
+          批量保存全部图片（{{result.images.length}}张）
+        </button>
+      </block>
+      <view class="empty-tip text-secondary text-center" wx:else>
+        <text>暂无图片内容</text>
+      </view>
+    </view>
+
+    <!-- Tab 内容：视频 -->
+    <view class="tab-content" wx:if="{{activeTab === 1}}">
+      <block wx:if="{{result.video_url}}">
+        <view class="video-wrapper card">
+          <video
+            class="video-player"
+            src="{{result.video_url}}"
+            poster="{{result.cover}}"
+            controls
+            show-center-play-btn
+            object-fit="contain"
+          />
+        </view>
+        <button class="btn-primary" bindtap="saveVideo">保存视频到相册</button>
+      </block>
+      <view class="empty-tip text-secondary text-center" wx:else>
+        <text>暂无视频内容</text>
+      </view>
+    </view>
+
+    <!-- Tab 内容：文案 -->
+    <view class="tab-content" wx:if="{{activeTab === 2}}">
+      <view class="text-content card" wx:if="{{result.text || result.title}}">
+        <text class="text-body" user-select>{{result.text || result.title}}</text>
+      </view>
+      <button class="btn-primary" bindtap="copyText" wx:if="{{result.text || result.title}}">一键复制文案</button>
+      <view class="empty-tip text-secondary text-center" wx:if="{{!result.text && !result.title}}">
+        <text>暂无文案内容</text>
+      </view>
+    </view>
+  </block>
+</view>

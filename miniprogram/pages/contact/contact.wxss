@@ -1,0 +1,39 @@
+/* === 联系方式页 === */
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 24rpx;
+  margin-bottom: 6rpx;
+}
+
+.contact-value {
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.copy-btn {
+  padding: 12rpx 24rpx;
+  border: 1rpx solid var(--accent);
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+.note {
+  margin-top: 10rpx;
+}
+
+.note-text {
+  font-size: 26rpx;
+  line-height: 1.7;
+}

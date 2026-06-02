@@ -1,0 +1,38 @@
+/* === FAQ 页 === */
+.faq-item {
+  padding: 28rpx 32rpx;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-question {
+  font-size: 30rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+.faq-arrow {
+  font-size: 36rpx;
+  color: var(--text-secondary);
+  transition: transform 0.2s;
+  transform: rotate(0deg);
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.arrow-open {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  padding-top: 4rpx;
+}
+
+.faq-answer-text {
+  font-size: 26rpx;
+  line-height: 1.8;
+}
