@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  quality:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,14 +20,31 @@ jobs:
       - name: 安装根目录依赖
         run: npm ci
 
-      - name: 安装 server 依赖
-        run: cd server && npm ci
-
       - name: 代码检查
         run: npm run lint
 
       - name: 格式检查
         run: npm run format:check
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 配置 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            server/package-lock.json
+
+      - name: 安装根目录依赖
+        run: npm ci
+
+      - name: 安装 server 依赖
+        run: cd server && npm ci
 
       - name: 测试
         run: npm test

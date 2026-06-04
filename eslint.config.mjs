@@ -33,6 +33,12 @@ export default [
     },
   },
   {
+    files: ['**/*.mjs'],
+    languageOptions: {
+      sourceType: 'module',
+    },
+  },
+  {
     ignores: [
       'node_modules/',
       'server/node_modules/',

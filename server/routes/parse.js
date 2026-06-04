@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const { parseUrl } = require('../services/watermark');
+const watermark = require('../services/watermark');
 
 // POST /api/parse — 解析链接
 router.post('/parse', async (req, res) => {
@@ -12,7 +12,7 @@ router.post('/parse', async (req, res) => {
   }
 
   try {
-    const data = await parseUrl(url);
+    const data = await watermark.parseUrl(url);
     res.json({ success: true, data });
   } catch (err) {
     res.status(500).json({
